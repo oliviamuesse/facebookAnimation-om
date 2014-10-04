@@ -20,6 +20,7 @@
 		429277A4198F391500E19641 /* CreateStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429277A3198F391500E19641 /* CreateStatusViewController.swift */; };
 		429277A6198F392800E19641 /* CreatePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429277A5198F392800E19641 /* CreatePhotoViewController.swift */; };
 		429277A8198F393500E19641 /* CreateCheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429277A7198F393500E19641 /* CreateCheckinViewController.swift */; };
+		457C13F919E08E8F00E2C3AD /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457C13F819E08E8F00E2C3AD /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		429277A3198F391500E19641 /* CreateStatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStatusViewController.swift; sourceTree = "<group>"; };
 		429277A5198F392800E19641 /* CreatePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePhotoViewController.swift; sourceTree = "<group>"; };
 		429277A7198F393500E19641 /* CreateCheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCheckinViewController.swift; sourceTree = "<group>"; };
+		457C13F819E08E8F00E2C3AD /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				429277A3198F391500E19641 /* CreateStatusViewController.swift */,
 				429277A5198F392800E19641 /* CreatePhotoViewController.swift */,
 				429277A7198F393500E19641 /* CreateCheckinViewController.swift */,
+				457C13F819E08E8F00E2C3AD /* PhotoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -197,7 +200,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4216764B198E3220008CCBC3 /* Build configuration list for PBXProject "Facebook" */;
+			buildConfigurationList = 4216764B198E3220008CCBC3 /* Build configuration list for PBXProject "facebookAnimation-om" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -250,6 +253,7 @@
 				42167678198ECE0E008CCBC3 /* RequestsViewController.swift in Sources */,
 				42167673198EAABC008CCBC3 /* SettingsViewController.swift in Sources */,
 				4216767A198ECE88008CCBC3 /* NewsFeedViewController.swift in Sources */,
+				457C13F919E08E8F00E2C3AD /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +425,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4216764B198E3220008CCBC3 /* Build configuration list for PBXProject "Facebook" */ = {
+		4216764B198E3220008CCBC3 /* Build configuration list for PBXProject "facebookAnimation-om" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4216766A198E3220008CCBC3 /* Debug */,

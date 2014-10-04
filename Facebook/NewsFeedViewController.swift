@@ -33,4 +33,9 @@ class NewsFeedViewController: UIViewController {
         scrollView.scrollIndicatorInsets.top = 0
         scrollView.scrollIndicatorInsets.bottom = 50
     }
+    
+    @IBAction func onTapImage(sender: UITapGestureRecognizer) {
+        performSegueWithIdentifier("weddingSegue", sender: nil)
+    }
+    
 }
