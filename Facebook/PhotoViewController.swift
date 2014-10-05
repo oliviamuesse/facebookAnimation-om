@@ -9,17 +9,32 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-
+  
+    
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    var image: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        var image = imageView.image
+        println(imageView.image)
+        
+        
 
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func onDone(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*

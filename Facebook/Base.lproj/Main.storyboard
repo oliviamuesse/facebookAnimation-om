@@ -136,18 +136,29 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rC5-vv-ibL">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="526"/>
+                                        <rect key="frame" x="0.0" y="60" width="320" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doneButton" id="Qch-Xq-HlC">
-                                        <rect key="frame" x="261" y="18" width="51" height="27"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j5x-3a-6h1">
+                                        <rect key="frame" x="259" y="26" width="51" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="doneButton">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onDone:" destination="oAU-QA-5mp" eventType="touchUpInside" id="r42-4Z-aFG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="doneButton" destination="j5x-3a-6h1" id="Umm-Dr-yel"/>
+                        <outlet property="imageView" destination="rC5-vv-ibL" id="ECt-pQ-fjr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2c-iB-Xx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -187,24 +198,53 @@
                                             <segue destination="4dZ-Wz-S84" kind="push" id="wkZ-i9-nuQ"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" id="Pgc-CI-R86" userLabel="wedding1View">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding1" id="sSu-Ob-S18">
                                         <rect key="frame" x="3" y="83" width="156" height="156"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding1" id="sSu-Ob-S18">
-                                                <rect key="frame" x="0.0" y="-45" width="156" height="234"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="4B5-ki-hcT" appends="YES" id="1R8-UQ-hnB"/>
+                                            <outletCollection property="gestureRecognizers" destination="93a-Wc-tu9" appends="YES" id="tGo-JJ-yoI"/>
                                         </connections>
-                                    </view>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding2" id="ewo-zt-zxe">
+                                        <rect key="frame" x="3" y="240" width="156" height="156"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ipi-OI-iod" appends="YES" id="weY-QQ-heZ"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding3" id="gZs-gA-pOB">
+                                        <rect key="frame" x="161" y="83" width="156" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="CJb-BC-tnw" appends="YES" id="eJn-mn-9Mp"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding4" id="hFW-nl-15M">
+                                        <rect key="frame" x="161" y="188" width="156" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="n9E-De-jgj" appends="YES" id="xkT-NF-FtZ"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wedding5" id="445-ss-Olu">
+                                        <rect key="frame" x="161" y="293" width="156" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="na1-Mq-HOV" appends="YES" id="rAg-FA-J5Q"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82745098039215681" green="0.83921568627450982" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="D5S-Y2-6dg">
+                                <rect key="frame" x="150" y="280" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="G5O-eW-ffK">
                                 <rect key="frame" x="6" y="64" width="102" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -241,14 +281,40 @@
                     <navigationItem key="navigationItem" id="m9U-cv-OHe"/>
                     <connections>
                         <outlet property="feedImageView" destination="BFk-jQ-UCW" id="FKQ-21-8kr"/>
+                        <outlet property="image1" destination="sSu-Ob-S18" id="cBe-Zf-Dhv"/>
+                        <outlet property="image2" destination="ewo-zt-zxe" id="9oV-F3-ay3"/>
+                        <outlet property="image3" destination="gZs-gA-pOB" id="h1F-A5-Gir"/>
+                        <outlet property="image4" destination="hFW-nl-15M" id="PLy-AL-53w"/>
+                        <outlet property="image5" destination="445-ss-Olu" id="YJS-G1-Wzd"/>
+                        <outlet property="loadingSpinner" destination="D5S-Y2-6dg" id="SZU-fn-bzy"/>
                         <outlet property="scrollView" destination="YZ6-vp-O3X" id="Pgj-Be-1bK"/>
                         <segue destination="oAU-QA-5mp" kind="modal" identifier="weddingSegue" id="ApS-gI-wd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Rx-vT-Xm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="4B5-ki-hcT">
+                <tapGestureRecognizer id="93a-Wc-tu9" userLabel="tapImage1">
                     <connections>
-                        <action selector="onTapImage:" destination="hBK-bb-7vk" id="PuI-GQ-bHo"/>
+                        <action selector="onTapImage:" destination="hBK-bb-7vk" id="cKz-8Y-SHS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="CJb-BC-tnw" userLabel="tapImage3">
+                    <connections>
+                        <action selector="onTapImage:" destination="hBK-bb-7vk" id="5Rb-Lv-I4a"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="ipi-OI-iod" userLabel="tapImage2">
+                    <connections>
+                        <action selector="onTapImage:" destination="hBK-bb-7vk" id="esC-o3-Dem"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="n9E-De-jgj" userLabel="tapImage4">
+                    <connections>
+                        <action selector="onTapImage:" destination="hBK-bb-7vk" id="HbM-V7-aau"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="na1-Mq-HOV" userLabel="tapImage5">
+                    <connections>
+                        <action selector="onTapImage:" destination="hBK-bb-7vk" id="r0M-6c-FFY"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -654,6 +720,10 @@
         <image name="settings" width="320" height="1800"/>
         <image name="thrillist_detail" width="320" height="1203"/>
         <image name="wedding1" width="320" height="480"/>
+        <image name="wedding2" width="480" height="320"/>
+        <image name="wedding3" width="480" height="320"/>
+        <image name="wedding4" width="480" height="320"/>
+        <image name="wedding5" width="480" height="320"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
