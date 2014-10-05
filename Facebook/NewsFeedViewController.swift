@@ -22,6 +22,7 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
     
     var isPresenting: Bool = true
     var imageViewToSegue: UIImageView!
+    //var copyImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +68,9 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
     override func prepareForSegue(weddingSegue: (UIStoryboardSegue!), sender: AnyObject!) {
         var destinationViewController = weddingSegue.destinationViewController as PhotoViewController
         destinationViewController.image = self.imageViewToSegue.image
-        
+        println("identifier\(weddingSegue.identifier)")
+        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationViewController.transitioningDelegate = self
     }
     
     @IBAction func onTapImage(gestureRecognizer: UITapGestureRecognizer) {
@@ -77,14 +80,6 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
     }
     
     //Animation: Custom segue
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var destinationVC = segue.destinationViewController as UIViewController
-        println("identifier\(segue.identifier)")
-        destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
-        destinationVC.transitioningDelegate = self
-        
-    }
     
     func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
         isPresenting = true
@@ -98,7 +93,7 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         // The value here should be the duration of the animations scheduled in the animationTransition method
-        return 0.6
+        return 0.5
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -108,16 +103,30 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
         if (isPresenting) {
+            var copyImageView = UIImageView()
+            copyImageView.frame.origin = view.convertPoint(imageViewToSegue.frame.origin, fromView: scrollView)
+            copyImageView.frame.size = imageViewToSegue.frame.size
+            copyImageView.image = imageViewToSegue.image
+            copyImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            copyImageView.clipsToBounds = true
+            copyImageView.userInteractionEnabled = true
+            var window = UIApplication.sharedApplication().keyWindow
+            window.addSubview(copyImageView)
+            
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
-            UIView.animateWithDuration(0.6, animations: { () -> Void in
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
                 toViewController.view.alpha = 1
                 }) { (finished: Bool) -> Void in
+                    copyImageView.removeFromSuperview()
                     transitionContext.completeTransition(true)
             }
+            
         } else {
-            UIView.animateWithDuration(0.6, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
                 fromViewController.view.alpha = 0
+                
                 }) { (finished: Bool) -> Void in
                     transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
