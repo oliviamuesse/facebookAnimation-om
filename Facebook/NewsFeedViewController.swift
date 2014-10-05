@@ -69,6 +69,7 @@ class NewsFeedViewController: UIViewController
     
     override func prepareForSegue(weddingSegue: (UIStoryboardSegue!), sender: AnyObject!) {
         var destinationViewController = weddingSegue.destinationViewController as PhotoViewController
+        destinationViewController.view = imageViewToSegue
         destinationViewController.image = self.imageViewToSegue.image
         
     }
