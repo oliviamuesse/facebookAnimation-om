@@ -134,6 +134,10 @@
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rC5-vv-ibL">
                                         <rect key="frame" x="0.0" y="60" width="320" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="iHU-IW-a0Q" appends="YES" id="jwK-7n-w9u"/>
+                                        </connections>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo_actions" id="rEF-re-aQQ">
                                         <rect key="frame" x="0.0" y="524" width="320" height="44"/>
@@ -162,10 +166,16 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="doneButton" destination="j5x-3a-6h1" id="Umm-Dr-yel"/>
+                        <outlet property="imageScrollView" destination="oDQ-Ww-ygg" id="UTy-qP-Laj"/>
                         <outlet property="imageView" destination="rC5-vv-ibL" id="ECt-pQ-fjr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2c-iB-Xx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="iHU-IW-a0Q">
+                    <connections>
+                        <action selector="onPanImage:" destination="oAU-QA-5mp" id="dUF-Ul-hpN"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1660" y="1452"/>
         </scene>

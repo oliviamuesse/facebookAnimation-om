@@ -93,7 +93,7 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         // The value here should be the duration of the animations scheduled in the animationTransition method
-        return 0.5
+        return 0.4
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -101,6 +101,8 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
         var containerView = transitionContext.containerView()
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        var window = UIApplication.sharedApplication().keyWindow
+        
         
         if (isPresenting) {
             var copyImageView = UIImageView()
@@ -110,13 +112,16 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
             copyImageView.contentMode = UIViewContentMode.ScaleAspectFill
             copyImageView.clipsToBounds = true
             copyImageView.userInteractionEnabled = true
-            var window = UIApplication.sharedApplication().keyWindow
             window.addSubview(copyImageView)
             
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
             
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                copyImageView.frame.size.width = 320
+                copyImageView.frame.size.height = 465
+                copyImageView.frame.origin.x = 0
+                copyImageView.frame.origin.y = 60
                 toViewController.view.alpha = 1
                 }) { (finished: Bool) -> Void in
                     copyImageView.removeFromSuperview()
@@ -124,7 +129,7 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
             }
             
         } else {
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
                 fromViewController.view.alpha = 0
                 
                 }) { (finished: Bool) -> Void in

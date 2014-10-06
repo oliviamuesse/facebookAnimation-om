@@ -11,16 +11,20 @@ import UIKit
 class PhotoViewController: UIViewController {
   
     
+    @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     var image: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = image
-        println(imageView.image)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        imageView.image = image
+        println(imageView.image)
     }
 
     @IBAction func onDone(sender: AnyObject) {
@@ -32,6 +36,23 @@ class PhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onPanImage(gestureRecognizer: UIPanGestureRecognizer) {
+        println("panning")
+        var location = gestureRecognizer.locationInView(view)
+        var translation = gestureRecognizer.translationInView(view)
+        var velocity = gestureRecognizer.velocityInView(view)
+        var imageCenter = imageScrollView.center
+        
+        if gestureRecognizer.state == UIGestureRecognizerState.Began {
+            
+            
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
+                imageView.center.y = translation.y + imageCenter.y
+        } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+    }
     
     
 
