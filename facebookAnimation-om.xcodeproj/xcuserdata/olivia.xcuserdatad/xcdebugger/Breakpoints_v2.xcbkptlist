@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Facebook/NewsFeedViewController.swift"
-            timestampString = "434246048.979877"
+            timestampString = "434405209.824117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "NewsFeedViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -162,11 +162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Facebook/NewsFeedViewController.swift"
-            timestampString = "434246048.979877"
+            timestampString = "434405209.824117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "NewsFeedViewController"
             landmarkType = "3">
          </BreakpointContent>

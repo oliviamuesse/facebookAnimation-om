@@ -102,14 +102,14 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
         var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         var window = UIApplication.sharedApplication().keyWindow
+        var imageCenter = imageViewToSegue.center
         
         
         if (isPresenting) {
-            var copyImageView = UIImageView()
+            var copyImageView = UIImageView(frame: imageViewToSegue.frame)
             copyImageView.frame.origin = view.convertPoint(imageViewToSegue.frame.origin, fromView: scrollView)
-            copyImageView.frame.size = imageViewToSegue.frame.size
             copyImageView.image = imageViewToSegue.image
-            copyImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            copyImageView.contentMode = imageViewToSegue.contentMode
             copyImageView.clipsToBounds = true
             copyImageView.userInteractionEnabled = true
             window.addSubview(copyImageView)
@@ -117,24 +117,41 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
             
+            if let vc = toViewController as? PhotoViewController {
+                vc.imageView.hidden = true
+            }
+            
             UIView.animateWithDuration(0.4, animations: { () -> Void in
-                copyImageView.frame.size.width = 320
-                copyImageView.frame.size.height = 465
-                copyImageView.frame.origin.x = 0
-                copyImageView.frame.origin.y = 60
+                copyImageView.frame = CGRect(x: 0, y: 60, width: 320, height: 465)
                 toViewController.view.alpha = 1
                 }) { (finished: Bool) -> Void in
                     copyImageView.removeFromSuperview()
+                    if let vc = toViewController as? PhotoViewController {
+                        vc.imageView.hidden = false
+                    }
                     transitionContext.completeTransition(true)
             }
             
         } else {
+            let vc = fromViewController as PhotoViewController
+            
+            var copyImageView = UIImageView(frame: imageViewToSegue.frame)
+            copyImageView.frame = CGRect(x: 0, y: 60, width: 320, height: 465)
+            
+            copyImageView.image = imageViewToSegue.image
+            copyImageView.contentMode = imageViewToSegue.contentMode
+            copyImageView.clipsToBounds = true
+            copyImageView.userInteractionEnabled = true
+            window.addSubview(copyImageView)
+            vc.imageView.hidden = true
+            
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 fromViewController.view.alpha = 0
-                
+                copyImageView.frame = self.imageViewToSegue.frame
                 }) { (finished: Bool) -> Void in
-                    transitionContext.completeTransition(true)
                     fromViewController.view.removeFromSuperview()
+                    copyImageView.removeFromSuperview()
+                    transitionContext.completeTransition(true)
             }
         }
     }
