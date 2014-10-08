@@ -103,7 +103,7 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
         var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         var window = UIApplication.sharedApplication().keyWindow
         var imageCenter = imageViewToSegue.center
-        
+        var frame = window.convertRect(imageViewToSegue.frame, fromView: scrollView)
         
         if (isPresenting) {
             var copyImageView = UIImageView(frame: imageViewToSegue.frame)
@@ -135,7 +135,7 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
         } else {
             let vc = fromViewController as PhotoViewController
             
-            var copyImageView = UIImageView(frame: imageViewToSegue.frame)
+            var copyImageView = UIImageView(frame: vc.imageView.frame)
             copyImageView.frame = CGRect(x: 0, y: 60, width: 320, height: 465)
             
             copyImageView.image = imageViewToSegue.image
@@ -147,11 +147,12 @@ class NewsFeedViewController: UIViewController, UIViewControllerTransitioningDel
             
             UIView.animateWithDuration(0.4, animations: { () -> Void in
                 fromViewController.view.alpha = 0
-                copyImageView.frame = self.imageViewToSegue.frame
+                copyImageView.frame = frame
                 }) { (finished: Bool) -> Void in
-                    fromViewController.view.removeFromSuperview()
                     copyImageView.removeFromSuperview()
                     transitionContext.completeTransition(true)
+                    fromViewController.view.removeFromSuperview()
+
             }
         }
     }

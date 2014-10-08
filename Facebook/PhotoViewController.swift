@@ -11,14 +11,17 @@ import UIKit
 class PhotoViewController: UIViewController, UIScrollViewDelegate {
   
     
-    @IBOutlet weak var imageScrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var actionsView: UIImageView!
+    
     var image: UIImage!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageScrollView.delegate = self
+        scrollView.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -35,41 +38,31 @@ class PhotoViewController: UIViewController, UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+        // Do fading out of done and action buttons here
+
+    func scrollViewDidScroll(scrollview: UIScrollView!) {
+            var offset = abs(Float(scrollView.contentOffset.y))
+            var alphaOffset = 1 - CGFloat(offset/70)
+            self.view.backgroundColor = UIColor(white: 0, alpha: alphaOffset)
+            doneButton.alpha = CGFloat(alphaOffset)
+            actionsView.alpha = CGFloat(alphaOffset)
     
-    func scrollViewDidScroll(scrollView: UIScrollView!) {
-        // This method is called as the user scrolls
-    }
+            }
     
-    func scrollViewWillBeginDragging(scrollView: UIScrollView!) {
-        
-    }
+        func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+            var offset = abs(Float(scrollView.contentOffset.y))
+            println(offset)
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView!,
-        willDecelerate decelerate: Bool) {
-            // This method is called right as the user lifts their finger
-    }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView!) {
-        // This method is called when the scrollview finally stops scrolling.
-    }
-    
-    @IBAction func onPanImage(gestureRecognizer: UIPanGestureRecognizer) {
-        println("panning")
-        var location = gestureRecognizer.locationInView(view)
-        var translation = gestureRecognizer.translationInView(view)
-        var velocity = gestureRecognizer.velocityInView(view)
-        var imageCenter = imageScrollView.center
-        
-        if gestureRecognizer.state == UIGestureRecognizerState.Began {
-            
-            
-        } else if gestureRecognizer.state == UIGestureRecognizerState.Changed {
-                imageView.center.y = translation.y + imageCenter.y
-        } else if gestureRecognizer.state == UIGestureRecognizerState.Ended {
-            dismissViewControllerAnimated(true, completion: nil)
-            
+            if (offset > 80) {
+                dismissViewControllerAnimated(true, completion: nil)
+            // Do fading out of done and action buttons here
         }
-        
+    }
+
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return imageView
     }
     /*
     // MARK: - Navigation
