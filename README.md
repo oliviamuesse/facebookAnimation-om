@@ -1,8 +1,7 @@
 facebookAnimation-om
 ====================
 
-exercise
-10 hours +
+Exercise Hours: 10+
 
 **Completed Required Tasks**
 
@@ -14,3 +13,5 @@ exercise
 
 **Not Completed**
 - Optional: The user should be able to page through the other photos in full screen mode.
+
+![alt tag](facebookAnimationApp-om.gif)
